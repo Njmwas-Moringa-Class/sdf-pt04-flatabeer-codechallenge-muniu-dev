@@ -16,4 +16,17 @@ fetch('http://localhost:3000/beers/1')
     });
   });
 
+  fetch('http://localhost:3000/beers')
+  .then(response => response.json())
+  .then(beers => {
+    var beerList = document.querySelector('#beer-list');
+    beerList.innerHTML = '';
+    beers.forEach(function(beer) {
+      var li = document.createElement('li');
+      li.innerText = beer.name;
+      beerList.appendChild(li);
+    });
+  });
+
+
 
